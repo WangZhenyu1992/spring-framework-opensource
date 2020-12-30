@@ -19,6 +19,10 @@ package org.springframework.beans.factory;
 import org.springframework.lang.Nullable;
 
 /**
+ * beanFactory一个字接口实现
+ * 这里hierarchy应该是指垂直，层次。那就是说多层次的bean
+ * 父bean工厂是啥意思呢？ todo
+ *
  * Sub-interface implemented by bean factories that can be part
  * of a hierarchy.
  *

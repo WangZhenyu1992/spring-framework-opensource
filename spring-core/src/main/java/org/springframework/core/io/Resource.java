@@ -27,6 +27,9 @@ import java.nio.channels.ReadableByteChannel;
 import org.springframework.lang.Nullable;
 
 /**
+ * 抽象底层资源
+ * 如 文件 class path等
+ *
  * Interface for a resource descriptor that abstracts from the actual
  * type of underlying resource, such as a file or class path resource.
  *
@@ -150,6 +153,7 @@ public interface Resource extends InputStreamSource {
 	long lastModified() throws IOException;
 
 	/**
+	 * 创建一个相对于本资源的相对资源？？？
 	 * Create a resource relative to this resource.
 	 * @param relativePath the relative path (relative to this resource)
 	 * @return the resource handle for the relative resource

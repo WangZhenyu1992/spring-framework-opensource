@@ -81,6 +81,8 @@ public class XmlValidationModeDetector {
 
 
 	/**
+	 * 检测指定的inputStream使用的xml验证模式
+	 *
 	 * Detect the validation mode for the XML document in the supplied {@link InputStream}.
 	 * Note that the supplied {@link InputStream} is closed by this method before returning.
 	 * @param inputStream the InputStream to parse
@@ -125,6 +127,9 @@ public class XmlValidationModeDetector {
 	}
 
 	/**
+	 * 这里应该是截断后面的不必要的判断
+	 * DOCTYPE的定义都是在正式的xml标签之前，如果读到正常标签，还没有读到DOCTYPE，那么就可以认为验证模式 是xsd的
+	 *
 	 * Does the supplied content contain an XML opening tag. If the parse state is currently
 	 * in an XML comment then this method always returns false. It is expected that all comment
 	 * tokens will have consumed for the supplied content before passing the remainder to this method.
@@ -139,6 +144,11 @@ public class XmlValidationModeDetector {
 	}
 
 	/**
+	 * 那多行注释呢
+	 * <!--
+	 *  这里整一个DOCTYPE 这种情况咋处理？
+	 * -->
+	 *
 	 * Consume all leading and trailing comments in the given String and return
 	 * the remaining content, which may be empty since the supplied content might
 	 * be all comment data.

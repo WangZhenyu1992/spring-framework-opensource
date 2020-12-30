@@ -73,13 +73,22 @@ public class ClassPathXmlApplicationContextTests {
 	private static final String TEST_PROPERTIES = "test.properties";
 
 
+	/**
+	 * 单配置文件测试用例
+	 */
 	@Test
 	public void testSingleConfigLocation() {
+		// org/springframework/context/support/simpleContext.xml
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(FQ_SIMPLE_CONTEXT);
+		StaticMessageSource messageSource = ctx.getBean(StaticMessageSource.class);
+		System.out.println(messageSource);
 		assertThat(ctx.containsBean("someMessageSource")).isTrue();
 		ctx.close();
 	}
 
+	/**
+	 * 多配置文件测试
+	 */
 	@Test
 	public void testMultipleConfigLocations() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
@@ -105,6 +114,9 @@ public class ClassPathXmlApplicationContextTests {
 		assertThat(service.isProperlyDestroyed()).isTrue();
 	}
 
+	/**
+	 * 测试路径正则匹配
+	 */
 	@Test
 	public void testConfigLocationPattern() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(CONTEXT_WILDCARD);
@@ -116,6 +128,9 @@ public class ClassPathXmlApplicationContextTests {
 		assertThat(service.isProperlyDestroyed()).isTrue();
 	}
 
+	/**
+	 * 类加载
+	 */
 	@Test
 	public void testSingleConfigLocationWithClass() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(SIMPLE_CONTEXT, getClass());
@@ -123,6 +138,9 @@ public class ClassPathXmlApplicationContextTests {
 		ctx.close();
 	}
 
+	/**
+	 * 别名占位符测试
+	 */
 	@Test
 	public void testAliasWithPlaceholder() {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(
@@ -133,6 +151,10 @@ public class ClassPathXmlApplicationContextTests {
 		ctx.refresh();
 	}
 
+	/**
+	 * 非法类型
+	 * @throws IOException
+	 */
 	@Test
 	public void testContextWithInvalidValueType() throws IOException {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(

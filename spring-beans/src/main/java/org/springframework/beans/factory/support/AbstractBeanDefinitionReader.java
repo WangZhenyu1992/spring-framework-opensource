@@ -35,6 +35,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * BeanDefinitionReader的具体实现
+ * 像beanFactory那样提供一些公共的属性，方便累加载器加载bean的class
+ *
  * Abstract base class for bean definition readers which implement
  * the {@link BeanDefinitionReader} interface.
  *

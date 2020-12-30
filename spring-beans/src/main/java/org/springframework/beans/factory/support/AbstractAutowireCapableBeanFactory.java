@@ -85,6 +85,8 @@ import org.springframework.util.ReflectionUtils.MethodCallback;
 import org.springframework.util.StringUtils;
 
 /**
+ * 综合AbstractBeanFactory并对AutowireCapableBeanFactory进行实现
+ *
  * Abstract bean factory superclass that implements default bean creation,
  * with the full capabilities specified by the {@link RootBeanDefinition} class.
  * Implements the {@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}
@@ -280,6 +282,11 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	/**
+	 * 自动装配时忽略给定的以来接口
+	 * 典型的应用场景是通过其他方式解析Application上下文注册以来
+	 * 就像beanFactory通过beanFactoryAware注入
+	 * 或 ApplicationContext通过ApplicationContextAware注入
+	 *
 	 * Ignore the given dependency interface for autowiring.
 	 * <p>This will typically be used by application contexts to register
 	 * dependencies that are resolved in other ways, like BeanFactory through

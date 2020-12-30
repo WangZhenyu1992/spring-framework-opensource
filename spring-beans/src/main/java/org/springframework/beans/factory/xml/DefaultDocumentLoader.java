@@ -62,6 +62,8 @@ public class DefaultDocumentLoader implements DocumentLoader {
 
 
 	/**
+	 * 通过标准的JAXP-configured xml解析器将指定的inputSource装载为文档
+	 *
 	 * Load the {@link Document} at the supplied {@link InputSource} using the standard JAXP-configured
 	 * XML parser.
 	 */

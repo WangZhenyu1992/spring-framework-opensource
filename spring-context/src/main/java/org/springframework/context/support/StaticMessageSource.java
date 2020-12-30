@@ -25,6 +25,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ * 国际化相关的
+ * 目前测试用到
+ *
  * Simple implementation of {@link org.springframework.context.MessageSource}
  * which allows messages to be registered programmatically.
  * This MessageSource supports basic internationalization.

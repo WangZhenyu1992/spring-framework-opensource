@@ -58,6 +58,8 @@ public class XmlBeanFactory extends DefaultListableBeanFactory {
 
 
 	/**
+	 * 根据xml资源创建beanFactory
+	 *
 	 * Create a new XmlBeanFactory with the given resource,
 	 * which must be parsable using DOM.
 	 * @param resource the XML resource to load bean definitions from

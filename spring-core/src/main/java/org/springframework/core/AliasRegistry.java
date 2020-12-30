@@ -17,6 +17,7 @@
 package org.springframework.core;
 
 /**
+ * 定义对alias的简单的增删改操作
  * Common interface for managing aliases. Serves as a super-interface for
  * {@link org.springframework.beans.factory.support.BeanDefinitionRegistry}.
  *
@@ -27,9 +28,9 @@ public interface AliasRegistry {
 
 	/**
 	 * Given a name, register an alias for it.
-	 * @param name the canonical name
-	 * @param alias the alias to be registered
-	 * @throws IllegalStateException if the alias is already in use
+	 * @param name the canonical name 典范名
+	 * @param alias the alias to be registered 注册的别名
+	 * @throws IllegalStateException if the alias is already in use 如果别名已经被使用，抛出异常并且不覆盖
 	 * and may not be overridden
 	 */
 	void registerAlias(String name, String alias);

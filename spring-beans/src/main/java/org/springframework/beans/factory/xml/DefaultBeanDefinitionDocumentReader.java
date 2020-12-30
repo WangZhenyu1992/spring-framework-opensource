@@ -115,6 +115,8 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 
 
 	/**
+	 * 根据<beans/>标签 注册每一个beanDefinition
+	 *
 	 * Register each bean definition within the given root {@code <beans/>} element.
 	 */
 	@SuppressWarnings("deprecation")  // for Environment.acceptsProfiles(String...)
@@ -145,7 +147,9 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 			}
 		}
 
+		// 解析前后处理 可以自定义
 		preProcessXml(root);
+		// 重点
 		parseBeanDefinitions(root, this.delegate);
 		postProcessXml(root);
 
@@ -299,6 +303,8 @@ public class DefaultBeanDefinitionDocumentReader implements BeanDefinitionDocume
 	}
 
 	/**
+	 * 根据给定的bean元素 解析bean定义并注册
+	 *
 	 * Process the given bean element, parsing the bean definition
 	 * and registering it with the registry.
 	 */

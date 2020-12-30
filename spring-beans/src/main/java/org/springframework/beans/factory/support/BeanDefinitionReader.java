@@ -22,6 +22,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.lang.Nullable;
 
 /**
+ * bean定义读取器，主要是将配置文件转换为bean定义
+ *
  * Simple interface for bean definition readers.
  * Specifies load methods with Resource and String location parameters.
  *
